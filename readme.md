@@ -41,85 +41,84 @@ Bike Store Live Application
 
 1. Clone the repository:
 
-tsx
+```
 git clone https://github.com/marufhossain55/bookshop_B4A2_L2.git
-cd bookshop_B4A2_L2 2. Install dependencies:
+cd bookshop_B4A2_L2
+```
 
-tsx
-npm install 3. Set up environment variables:
-Create a .env file in the root directory and add the following variables:
+2. Install dependencies:
 
-tsx
+```
+npm install
+```
+
+3. Set up environment variables:
+   Create a .env file in the root directory and add the following variables:
+
+```
 PORT=5000
 MONGO_URI=your_mongodb_uri
+```
 
 ### Running Locally
 
 1. Start the server:
 
-tsx
+```
 npm run dev
+```
 
 2. Visit the application:
    Open http://localhost:5000 in your browser.
 
 📖 API Documentation
 
-1. Create a Bike
-   Endpoint: POST /api/addBook
+1. Create a Book
+   Endpoint: POST /api/products
    Request Body:
 
-tsx
+```json
 {
-"title": "The Great Gatsby",
-"author": "F. Scott Fitzgerald",
-"price": 10,
-"category": "Fiction",
-"description": "A story about the American dream.",
-"quantity": 100,
-"inStock": true
+  "title": "The Great Gatsby",
+  "author": "F. Scott Fitzgerald",
+  "price": 10,
+  "category": "Fiction",
+  "description": "A story about the American dream.",
+  "quantity": 100,
+  "inStock": true
 }
-Response:
+```
 
-tsx
-
-{
-"message": "Book created successfully",
-"success": true,
-"data": {
-"\_id": "648a45e5f0123c45678d9012",
-"title": "The Great Gatsby",
-"author": "F. Scott Fitzgerald",
-"price": 10,
-"category": "Fiction",
-"description": "A story about the American dream.",
-"quantity": 100,
-"inStock": true,
-"createdAt": "2024-11-19T10:23:45.123Z",
-"updatedAt": "2024-11-19T10:23:45.123Z",
-}
-}
-
-2. Get All Bikes
+2. Get All Books
    Endpoint: GET /api/products
 
-3. Get a Bike by ID
-   Endpoint: GET /api/products/:bookId
+3. Get a Specific Book
+   Endpoint: GET /api/products/:productId
 
-4. Update a Bike
-   Endpoint: PUT /api/products/:bookId
+4. Update a Books
+   Endpoint: PUT /api/products/:productId
 
-5. Delete a Bike
-   Endpoint: DELETE /api/products/:bookId
+```json
+{
+  "price": 15,
+  "quantity": 25
+}
+```
 
-6. Place an Order
-   Endpoint: POST /api/orders/placeOrder
+5. Delete a Book
+   Endpoint: DELETE /api/products/:productId
 
-7. Get Total Revenue
-   Endpoint: GET /api/orders
+6. Order a Book
+   Endpoint: POST /api/orders
 
-(For detailed API documentation, refer to the /docs directory or API testing collection shared.)
+```json
+{
+  "email": "customer@example.com",
+  "product": "648a45e5f0123c45678d9012",
+  "quantity": 2,
+  "totalPrice": 30
+}
+```
 
-## 🙌 Contributing
-
-Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+7. Calculate Revenue from Orders
+   Endpoint: GET /api/orders/revenue
