@@ -70,8 +70,6 @@ const BookProductModelSchema = model<Book>('Book', BookModelSchema);
 
 export default BookProductModelSchema;
 
-// export const BikeModel = model<Bike>('Bike', bikeSchema);
-
 // Product Model (Book)
 // title (string): The title of the book.
 // author (string): The author of the book.

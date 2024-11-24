@@ -6,6 +6,8 @@ type Book = {
   description: string;
   quantity: number;
   inStock: boolean;
+  createdAt: Date;
+  updatedAt: Date;
 };
 
 export default Book;
