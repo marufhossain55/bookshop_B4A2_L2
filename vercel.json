@@ -1,0 +1,27 @@
+Email:buyer@gmail.com
+Password:123456@Buyer
+
+Email:seller@gmail.com
+Password:123456@Seller
+
+Email:admin@gmail.com
+Password:123456@Admin
+
+
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/server.ts",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["src/**/*"]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)"
+    }
+  ]
+}
