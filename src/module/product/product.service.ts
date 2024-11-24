@@ -16,5 +16,31 @@ const getAllBooksService = async (searchTerm: string) => {
   return await BookProductModelSchema.find(filter);
 };
 
-const BookService = { addSingleBookService, getAllBooksService };
+//get single book
+const getSpecificBookService = async (_id: string) => {
+  const result = await BookProductModelSchema.findById(_id);
+  return result;
+};
+
+//Update a Book
+const updateSingleBookService = async (_id: string, book: Book) => {
+  const result = await BookProductModelSchema.findByIdAndUpdate(_id, book, {
+    new: true,
+  });
+  return result;
+};
+
+// Delete a Book
+const deleteSingleBookService = async (_id: string) => {
+  const result = await BookProductModelSchema.findByIdAndDelete(_id);
+  return result;
+};
+
+const BookService = {
+  addSingleBookService,
+  getAllBooksService,
+  getSpecificBookService,
+  updateSingleBookService,
+  deleteSingleBookService,
+};
 export default BookService;
