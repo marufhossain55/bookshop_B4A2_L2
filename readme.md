@@ -1,72 +1,75 @@
-Features
-Product Management (Books)
-Create a Book
-Add a new book with details such as title, author, price, category, description, and stock quantity.
+#Book Shop Management System 🚲
+A full-stack application built with TypeScript, Express.js, and MongoDB to manage bike inventory, orders, and revenue calculation seamlessly.
 
-Get All Books
-Retrieve all books or filter by title, author, or category using a search term.
+## 🚀 Live Demo
 
-Get a Specific Book
-Fetch detailed information about a specific book using its ID.
+Bike Store Live Application
 
-Update a Book
-Update book details such as price, quantity, and stock status.
+([live URL ](https://2nd-assignment-mongo-db.vercel.app/))
 
-Delete a Book
-Remove a book from the store.
+## ✨ Features
 
-Order Management
-Place an Order
+- Product Management:
+  - Create, read, update, and delete bikes (CRUD).
+  - Filter bikes by name, category, or brand.
+- Order Management:
+  - Place an order for bikes.
+  - Automatic inventory update after order placement.
+  - Handle insufficient stock gracefully.
+- Revenue Calculation:
+  - Aggregate total revenue from orders.
+- Error Handling:
+  - Custom error messages for validation, missing resources, or server issues.
 
-Create an order by specifying the book ID, quantity, and customer email.
-Automatically reduces the stock of the book.
-Marks the book as out of stock if quantity reaches zero.
-Handles insufficient stock gracefully with error messages.
-Calculate Revenue
+## 🛠 Technologies Used
 
-Aggregates total revenue from all orders placed in the store.
-Error Handling
-Detailed error messages with validation errors and stack traces.
-Custom error responses for validation and resource not found scenarios.
-Tech Stack
-Backend: Express.js with TypeScript
-Database: MongoDB (with Mongoose ODM)
-Environment Management: dotenv
-Runtime: Node.js
-Installation and Setup
+- Backend: Node.js, Express.js
+- Database: MongoDB, Mongoose
+- Language: TypeScript
+- Tools: Postman, Git, Visual Studio Code
+- Hosting: (Vercel)
 
-1. Clone the Repository
-   bash
-   Copy code
-   git clone https://github.com/marufhossain55/bookshop_B4A2_L2
-   cd bookstore-api
-2. Install Dependencies
-   bash
-   Copy code
-   npm install
-3. Set Up Environment Variables
-   Create a .env file in the root directory and add the following:
+## 🚀 Getting Started
 
-makefile
+### Prerequisites
 
+- Node.js installed (v22)
+- MongoDB installed or access to a cloud MongoDB instance (e.g., MongoDB Atlas).
+- Git installed.
+
+### Installation
+
+1. Clone the repository:
+
+tsx
+git clone https://github.com/marufhossain55/bookshop_B4A2_L2.git
+cd bookshop_B4A2_L2 2. Install dependencies:
+
+tsx
+npm install 3. Set up environment variables:
+Create a .env file in the root directory and add the following variables:
+
+tsx
 PORT=5000
-MONGODB_URI=your-mongodb-connection-string 4. Run the Application
+MONGO_URI=your_mongodb_uri
 
-For development mode:
+### Running Locally
 
+1. Start the server:
+
+tsx
 npm run dev
-For production mode:
 
-npm run build
-npm start
-API Endpoints
+2. Visit the application:
+   Open http://localhost:5000 in your browser.
 
-1. Product Routes
-   Create a Book: POST /api/products
+📖 API Documentation
+
+1. Create a Bike
+   Endpoint: POST /api/addBook
    Request Body:
 
-json
-
+tsx
 {
 "title": "The Great Gatsby",
 "author": "F. Scott Fitzgerald",
@@ -78,50 +81,45 @@ json
 }
 Response:
 
-json
+tsx
 
 {
 "message": "Book created successfully",
 "success": true,
-"data": { ...book details }
-}
-Get All Books: GET /api/products
-Query: /api/products?searchTerm=Fiction
-
-Get a Specific Book: GET /api/products/:productId
-
-Update a Book: PUT /api/products/:productId
-Request Body:
-
-json
-
-{
-"price": 15,
-"quantity": 25
-}
-Delete a Book: DELETE /api/products/:productId
-
-2. Order Routes
-   Place an Order: POST /api/orders
-   Request Body:
-
-json
-
-{
-"email": "customer@example.com",
-"product": "648a45e5f0123c45678d9012",
-"quantity": 2,
-"totalPrice": 30
-}
-Calculate Revenue: GET /api/orders/revenue
-Response:
-
-json
-
-{
-"message": "Revenue calculated successfully",
-"status": true,
 "data": {
-"totalRevenue": 450
+"\_id": "648a45e5f0123c45678d9012",
+"title": "The Great Gatsby",
+"author": "F. Scott Fitzgerald",
+"price": 10,
+"category": "Fiction",
+"description": "A story about the American dream.",
+"quantity": 100,
+"inStock": true,
+"createdAt": "2024-11-19T10:23:45.123Z",
+"updatedAt": "2024-11-19T10:23:45.123Z",
 }
 }
+
+2. Get All Bikes
+   Endpoint: GET /api/products
+
+3. Get a Bike by ID
+   Endpoint: GET /api/products/:bookId
+
+4. Update a Bike
+   Endpoint: PUT /api/products/:bookId
+
+5. Delete a Bike
+   Endpoint: DELETE /api/products/:bookId
+
+6. Place an Order
+   Endpoint: POST /api/orders/placeOrder
+
+7. Get Total Revenue
+   Endpoint: GET /api/orders
+
+(For detailed API documentation, refer to the /docs directory or API testing collection shared.)
+
+## 🙌 Contributing
+
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
