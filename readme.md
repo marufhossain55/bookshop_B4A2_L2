@@ -38,7 +38,7 @@ Installation and Setup
 1. Clone the Repository
    bash
    Copy code
-   git clone https://github.com/yourusername/bookstore-api.git
+   git clone https://github.com/marufhossain55/bookshop_B4A2_L2
    cd bookstore-api
 2. Install Dependencies
    bash
