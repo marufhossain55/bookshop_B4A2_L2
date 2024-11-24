@@ -9,7 +9,7 @@ const addSingleBook = async (req: Request, res: Response) => {
     const result = await BookService.addSingleBookService(book);
     res.status(200).json({
       success: true,
-      message: 'book added successfully',
+      message: 'Book created successfully',
       data: result,
     });
   } catch (error: unknown) {
@@ -30,7 +30,7 @@ const getAllBooks = async (req: Request, res: Response) => {
     const result = await BookService.getAllBooksService(searchTerm as string);
     res.status(200).json({
       success: true,
-      message: 'operation successful',
+      message: 'Books retrieved successfully',
       data: result,
     });
   } catch (error: unknown) {
@@ -50,9 +50,11 @@ const getSpecificBook = async (req: Request, res: Response) => {
   try {
     const bookId = req.params.bookId;
     const result = await BookService.getSpecificBookService(bookId);
-    res
-      .status(200)
-      .json({ success: true, message: 'book found', data: result });
+    res.status(200).json({
+      success: true,
+      message: 'Book retrieved successfully',
+      data: result,
+    });
   } catch (error) {
     console.log(error);
     res.status(500).json({
@@ -72,7 +74,7 @@ const updateSingleBook = async (req: Request, res: Response) => {
     const result = await BookService.updateSingleBookService(bookId, body);
     res.status(200).json({
       success: true,
-      message: 'update successfully',
+      message: 'Book updated successfully',
       data: result,
     });
   } catch (error: unknown) {
@@ -94,8 +96,8 @@ const deleteSingleBook = async (req: Request, res: Response) => {
     const result = await BookService.deleteSingleBookService(bookId);
     res.status(200).json({
       success: true,
-      message: 'bike are retrived successfully',
-      data: result,
+      message: 'Book deleted successfully',
+      data: {},
     });
   } catch (error: unknown) {
     res.status(500).json({

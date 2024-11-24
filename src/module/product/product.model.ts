@@ -12,7 +12,7 @@ const BookModelSchema = new Schema<Book>(
       type: String,
       required: [true, 'Book author is required'],
       minlength: [4, 'name must be minimum 4 character'],
-      maxlength: [15, 'name must be maximum 15 character'],
+      maxlength: [50, 'author name must be maximum 15 character'],
     },
     price: {
       type: Number,
