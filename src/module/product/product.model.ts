@@ -66,7 +66,9 @@ const BookModelSchema = new Schema<Book>(
   },
 );
 
-export const BookProductModelSchema = model<Book>('Book', BookModelSchema);
+const BookProductModelSchema = model<Book>('Book', BookModelSchema);
+
+export default BookProductModelSchema;
 
 // export const BikeModel = model<Bike>('Bike', bikeSchema);
 
